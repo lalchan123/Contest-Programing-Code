@@ -3,18 +3,31 @@ using namespace std;
 
 int main(){
 
-    int n;
-    cin>>n;
+   int i, j;
 
-    for(int i=1;i<=n;i++){
-        if(n%2==0){
-            n= 3*n+1;
-            cout<<n<<endl;
-        }else{
-            n=n/2;
-            cout<<n<<endl;
+    while ((cin>>i>>j))
+    {
+        int i1 = i;
+        int j1 = j;
+        if ( i > j ) swap (i, j);
+        int mcl= 0,cl;
+        while ( i <= j )
+        {
+            cl = 1;
+            unsigned int n=i;
+            while ( n != 1 )
+            {
+                if ( n % 2 == 1 ) n = 3 * n + 1;
+                else n = n/2;
+                cl++;
+            }
+
+            if ( cl > mcl )
+                mcl = cl;
+
+            i++;
         }
+        cout<<i1<<" "<<j1<<" "<<mcl<<endl;
     }
-
-
+    return 0;
 }
